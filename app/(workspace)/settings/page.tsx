@@ -39,7 +39,7 @@ export default function SettingsPage() {
   return (
     <div className="space-y-6 max-w-4xl">
       {/* Page Header */}
-      <div className="bg-white p-6 rounded-xl border border-slate-200 shadow-xs">
+      <div className="bg-white p-4 sm:p-6 rounded-xl border border-slate-200 shadow-xs">
         <div className="flex items-center gap-2 mb-1">
           <span className="text-[11px] font-semibold uppercase tracking-wider px-2 py-0.5 rounded bg-slate-100 text-slate-700">
             {currentProject.workspace === "saya" ? "Ruang Kerja Saya" : "Ruang Kerja Pasangan"}
@@ -48,7 +48,7 @@ export default function SettingsPage() {
             Konfigurasi Workspace
           </span>
         </div>
-        <h1 className="text-xl font-bold text-slate-900">
+        <h1 className="text-lg sm:text-xl font-bold text-slate-900">
           Pengaturan Informasi Skripsi & Dosen
         </h1>
         <p className="text-xs text-slate-500 mt-1">
@@ -57,7 +57,7 @@ export default function SettingsPage() {
       </div>
 
       {/* Main Settings Form */}
-      <form onSubmit={handleSave} className="bg-white rounded-xl border border-slate-200 p-6 shadow-xs space-y-5">
+      <form onSubmit={handleSave} className="bg-white rounded-xl border border-slate-200 p-4 sm:p-6 shadow-xs space-y-5">
         <div className="flex items-center justify-between pb-3 border-b border-slate-100">
           <h3 className="font-bold text-slate-900 text-sm">
             Data Naskah Skripsi ({currentProject.studentName})
@@ -191,7 +191,7 @@ export default function SettingsPage() {
         <div className="pt-4 border-t border-slate-100 flex justify-end">
           <button
             type="submit"
-            className="px-5 py-2 rounded-lg bg-slate-900 hover:bg-slate-800 text-white text-xs font-semibold flex items-center gap-1.5 transition shadow-xs cursor-pointer"
+            className="w-full sm:w-auto px-5 py-2.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white text-xs font-semibold flex items-center justify-center gap-1.5 transition shadow-xs cursor-pointer"
           >
             <Save className="w-4 h-4" />
             <span>Simpan Informasi Skripsi</span>
@@ -200,7 +200,7 @@ export default function SettingsPage() {
       </form>
 
       {/* Cloud & Supabase Integration Status */}
-      <div className="bg-white rounded-xl border border-slate-200 p-6 shadow-xs space-y-3">
+      <div className="bg-white rounded-xl border border-slate-200 p-4 sm:p-6 shadow-xs space-y-3">
         <div className="flex items-center gap-2 pb-3 border-b border-slate-100">
           <Database className="w-4 h-4 text-slate-700" />
           <h3 className="font-bold text-slate-900 text-sm">
@@ -208,7 +208,7 @@ export default function SettingsPage() {
           </h3>
         </div>
 
-        <div className="flex items-center justify-between p-3 rounded-lg border border-slate-200 bg-slate-50 text-xs">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 p-3.5 rounded-lg border border-slate-200 bg-slate-50 text-xs">
           <div>
             <div className="font-semibold text-slate-900">
               {isConfigured ? "🟢 Terhubung ke Supabase Cloud" : "🟡 Mode Penyimpanan Browser Lokal (Offline / Standby)"}
@@ -219,7 +219,7 @@ export default function SettingsPage() {
                 : "Semua perubahan saat ini tersimpan aman di peramban (LocalStorage). Masukkan URL & Anon Key Supabase di file .env.local untuk live sync."}
             </div>
           </div>
-          <span className="text-[10px] px-2 py-0.5 rounded font-bold uppercase bg-slate-200 text-slate-700">
+          <span className="self-start sm:self-center text-[10px] px-2 py-0.5 rounded font-bold uppercase bg-slate-200 text-slate-700 shrink-0">
             {isConfigured ? "Live Sync" : "Local Persist"}
           </span>
         </div>

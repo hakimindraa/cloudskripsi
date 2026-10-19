@@ -55,10 +55,10 @@ export function UploadDraftModal({ isOpen, onClose, defaultBab = "BAB 3" }: Uplo
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/40 backdrop-blur-xs animate-in fade-in duration-150">
-      <div className="bg-white rounded-xl border border-slate-200 shadow-xl max-w-lg w-full overflow-hidden">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-slate-900/40 backdrop-blur-xs animate-in fade-in duration-150">
+      <div className="bg-white rounded-xl border border-slate-200 shadow-xl max-w-lg w-full max-h-[90vh] flex flex-col overflow-hidden">
         {/* Header */}
-        <div className="px-6 py-4 border-b border-slate-100 flex items-center justify-between">
+        <div className="px-5 sm:px-6 py-4 border-b border-slate-100 flex items-center justify-between shrink-0">
           <div>
             <h3 className="font-semibold text-slate-900 text-base">
               Upload Update Progres File
@@ -69,7 +69,7 @@ export function UploadDraftModal({ isOpen, onClose, defaultBab = "BAB 3" }: Uplo
           </div>
           <button
             onClick={onClose}
-            className="text-slate-500 hover:text-slate-700 p-1 rounded-md hover:bg-slate-100 transition"
+            className="text-slate-500 hover:text-slate-700 p-1.5 rounded-md hover:bg-slate-100 transition cursor-pointer"
           >
             <X className="w-4 h-4" />
           </button>
@@ -84,7 +84,7 @@ export function UploadDraftModal({ isOpen, onClose, defaultBab = "BAB 3" }: Uplo
             </p>
           </div>
         ) : (
-          <form onSubmit={handleSubmit} className="p-6 space-y-4">
+          <form onSubmit={handleSubmit} className="p-4 sm:p-6 space-y-4 overflow-y-auto flex-1">
             {/* File Dropzone Area */}
             <div>
               <label className="block text-xs font-semibold text-slate-700 mb-1.5">

@@ -63,8 +63,8 @@ export default function DashboardPage() {
   return (
     <div className="space-y-6">
       {/* Top Banner / Thesis Profile Card */}
-      <div className="bg-white rounded-xl border border-slate-200 p-6 shadow-xs">
-        <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-5 border-b border-slate-100">
+      <div className="bg-white rounded-xl border border-slate-200 p-4 sm:p-6 shadow-xs">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-5 border-b border-slate-100">
           <div>
             <div className="flex items-center gap-2 mb-1.5">
               <span className="text-[11px] font-semibold uppercase tracking-wider px-2 py-0.5 rounded bg-slate-100 text-slate-700">
@@ -84,7 +84,7 @@ export default function DashboardPage() {
 
           <button
             onClick={() => setIsUploadOpen(true)}
-            className="shrink-0 px-4 py-2 bg-slate-900 hover:bg-slate-800 text-white rounded-lg text-xs font-semibold shadow-xs flex items-center gap-1.5 transition cursor-pointer"
+            className="w-full sm:w-auto shrink-0 px-4 py-2 bg-slate-900 hover:bg-slate-800 text-white rounded-lg text-xs font-semibold shadow-xs flex items-center justify-center gap-1.5 transition cursor-pointer"
           >
             <FileText className="w-4 h-4" />
             <span>Upload Update Draft</span>
@@ -107,11 +107,13 @@ export default function DashboardPage() {
           </div>
 
           {/* Milestone steps pills */}
-          <div className="grid grid-cols-2 sm:grid-cols-5 gap-2 pt-1 text-center">
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-2 pt-1 text-center">
             {milestones.map((m, idx) => (
               <div
                 key={idx}
                 className={`p-2 rounded-lg border text-xs font-medium transition ${
+                  idx === 4 ? "col-span-2 sm:col-span-1 lg:col-span-1" : ""
+                } ${
                   m.done
                     ? "bg-emerald-50/70 border-emerald-200 text-emerald-800"
                     : m.current
@@ -325,11 +327,11 @@ export default function DashboardPage() {
                 <div className="text-[11px] text-slate-500 mt-1 line-clamp-2 italic">
                   {ref.apaCitation}
                 </div>
-                <div className="mt-2 flex items-center justify-between pt-2 border-t border-slate-100">
+                <div className="mt-2 flex flex-wrap items-center justify-between gap-2 pt-2 border-t border-slate-100">
                   <span className="text-[10px] text-slate-500">
                     {ref.authors.split(",")[0]} et al. ({ref.publicationYear})
                   </span>
-                  <div className="flex items-center gap-2">
+                  <div className="flex flex-wrap items-center gap-2">
                     {ref.sourceUrl && (
                       <a
                         href={ref.sourceUrl}
